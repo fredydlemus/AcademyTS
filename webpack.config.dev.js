@@ -1,8 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const CssMinimaizerPlugin = require('css-minimizer-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -14,7 +11,8 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js'],
     },
-    mode: 'production',
+    mode: 'development',
+    devtool: 'source-map',
     module: {
         rules: [{
             test: /\.ts$/,
@@ -36,14 +34,8 @@ module.exports = {
             template: './public/index.html',
             filename: './index.html'
         }),
-        new CleanWebpackPlugin(),
+        
         new Dotenv(),
     ],
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new CssMinimaizerPlugin(),
-            new TerserPlugin(),
-        ],
-    }
+    
 }
