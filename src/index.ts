@@ -1,5 +1,30 @@
-import { Course } from "./modules/course";
-import { freeStudent } from "./modules/freeStudent";
+import { Course } from "./classes/course";
+import { freeStudent } from "./classes/freeStudent";
+import { learningPath } from "./classes/learningPath";
+
+
+
+const CursoDeProgramacion = new Course({
+    name: 'CursoDeProgramacion',
+    classes: ['clase1']
+});
+
+const CursoDeHTML = new Course({
+    name: 'CursoDeHTML',
+    classes: ['clase1'],
+    isFree: true,
+    lang: 'english'
+});
+
+
+const newLearningPath = new learningPath({
+    name: 'Frontend Developer'
+});
+
+const newLearningPath2 = new learningPath({
+    name: 'Programming',
+    courses: [CursoDeProgramacion]
+});
 
 
 const newStudent = new freeStudent({
@@ -13,11 +38,25 @@ const newStudent = new freeStudent({
     }
 });
 
-const CursoDeProgramacion = new Course({
-    name: 'CursoDeProgramacion',
-    classes: ['clase']
+const newStudent2 = new freeStudent({
+    name: 'Daniel',
+    email: 'danielflemus@gmail.com',
+    username: 'danielflemus',
+    socialMedia: {
+        twitter: 'danielflemus',
+        instagram: 'danielflemus',
+        facebook: 'danielflemus'
+    },
+    approvedCourses: [CursoDeProgramacion],
+    learningPaths: [newLearningPath]
+
 });
 
 
+
 console.log(newStudent);
+console.log(newStudent2);
 console.log(CursoDeProgramacion);
+console.log(CursoDeHTML);
+console.log(newLearningPath);
+console.log(newLearningPath2);
