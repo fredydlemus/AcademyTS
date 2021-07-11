@@ -1,17 +1,22 @@
 import { Course } from "./classes/course";
 import { freeStudent } from "./classes/freeStudent";
 import { learningPath } from "./classes/learningPath";
+import { Lesson } from "./classes/lesson";
 
+const lesson1 = new Lesson({
+    name: 'conceptos basicos html',
+    videoID: 'httttps'
+});
 
 
 const CursoDeProgramacion = new Course({
     name: 'CursoDeProgramacion',
-    classes: ['clase1']
+    lesson: [lesson1]
 });
 
 const CursoDeHTML = new Course({
     name: 'CursoDeHTML',
-    classes: ['clase1'],
+    lesson: [lesson1],
     isFree: true,
     lang: 'english'
 });

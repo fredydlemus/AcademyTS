@@ -1,7 +1,8 @@
+import { Lesson } from "./lesson";
 
 interface courseInterface{
     name: string,
-    classes: string[],
+    lesson: Lesson[],
     isFree?: boolean,
     lang?: string
 }
@@ -9,13 +10,13 @@ interface courseInterface{
 export class Course{
 
     private _name: string;
-    private _classes: string[];
+    private _lesson: Lesson[];
     private _isFree: boolean = false;
     private _lang: string = "spanish";
 
     constructor(course: courseInterface){
         this._name = course.name;
-        this._classes = course.classes;
+        this._lesson = course.lesson;
         this._isFree = course.isFree || false;
         this._lang = course.lang || 'spanish';
     }
