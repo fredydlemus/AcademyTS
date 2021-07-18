@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -26,6 +27,12 @@ module.exports = {
                 loader: 'babel-loader'
             }
         },
+        {
+            test: /\.s[ac]ss$/,
+            use:[
+                MiniCssExtractPlugin.loader , 'css-loader', 'sass-loader',
+            ]
+        },
     ],
     },
     plugins: [
@@ -33,6 +40,9 @@ module.exports = {
             inject: true,
             template: './public/index.html',
             filename: './index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
         }),
         
         new Dotenv(),

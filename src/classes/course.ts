@@ -20,4 +20,12 @@ export class Course{
         this._isFree = course.isFree || false;
         this._lang = course.lang || 'spanish';
     }
+
+    get isFree(){
+        return this._isFree;
+    }
+
+    get lang(){
+        return this._lang;
+    }
 }

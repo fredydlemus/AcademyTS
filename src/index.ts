@@ -2,6 +2,7 @@ import { Course } from "./classes/course";
 import { freeStudent } from "./classes/freeStudent";
 import { learningPath } from "./classes/learningPath";
 import { Lesson } from "./classes/lesson";
+import './styles/index.scss';
 
 const lesson1 = new Lesson({
     name: 'conceptos basicos html',

@@ -1,5 +1,7 @@
 import { Course } from "./course";
 import { learningPath } from "./learningPath";
+import { roleStundet } from "./roles";
+import { Comment } from "./comment";
 
 
 export interface studentInterface{
@@ -37,6 +39,19 @@ export abstract class Student {
         this._approvedCorses = student.approvedCourses;
         this._learningPaths = student.learningPaths;
     }
+    
+    publicarComentario(commentContent: string){
+        const comment = new Comment({
+            autor: this._name,
+            autorRole: roleStundet.student,
+            contenido: commentContent,
+            fecha: '2020-01'
+
+        });
+
+        comment.publicar();
+    }
+
     
 }
 
